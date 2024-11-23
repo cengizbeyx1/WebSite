@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="tr"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Basit Web Sayfası</title> 
+  <link rel="stylesheet" href="style.css"> 
+ <style type="text/css" id="dcoder_stylesheet">/* Sayfanın genel düzeni */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}</style></head> 
+ <body> 
+  <header> 
+   <h1>Merhaba, Dünya!</h1> 
+   <p>Bu basit bir web sayfasıdır.</p> 
+  </header> 
+  <section> <button id="changeColorBtn">Arka Plan Rengini Değiştir</button> 
+   <p id="message">Butona tıklayarak renk değiştir!</p> 
+  </section> 
+  <footer> 
+   <p>© 2024 Basit Web Sayfası. Tüm hakları saklıdır.</p> 
+  </footer> 
+  <script src="script.js"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">// Butona tıklandığında arka plan rengini değiştiren fonksiyon
+document.getElementById('changeColorBtn').addEventListener('click', function() {
+    // Renk değiştirme işlemi
+    document.body.style.backgroundColor = getRandomColor();
+    // Mesajı değiştir
+    document.getElementById('message').innerText = "Renk değişti!";
+});
+
+// Rastgele bir renk üreten fonksiyon
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}</script></body></html>
