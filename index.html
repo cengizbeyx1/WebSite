@@ -9,7 +9,7 @@
         /* Sayfanın genel düzeni */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #ffffff; /* Arka plan rengi beyaz */
             margin: 0;
             padding: 0;
             text-align: center;
@@ -51,6 +51,40 @@
             width: 100%;
             bottom: 0;
         }
+
+        /* İletişim kısmı */
+        #contact {
+            margin-top: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        #contact h2 {
+            margin-bottom: 20px;
+        }
+
+        #contact form input,
+        #contact form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        #contact form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #contact form button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -60,32 +94,24 @@
     </header>
 
     <section>
-        <button id="changeColorBtn">Arka Plan Rengini Değiştir</button>
-        <p id="message">Butona tıklayarak renk değiştir!</p>
+        <button>Arka Plan Rengi Değiştirme</button>
+        <p>Arka plan rengi sabit, beyaz kalır.</p>
+    </section>
+
+    <!-- İletişim Kısmı -->
+    <section id="contact">
+        <h2>İletişime Geçin</h2>
+        <form>
+            <input type="text" placeholder="Adınız" required>
+            <input type="email" placeholder="E-posta adresiniz" required>
+            <textarea placeholder="Mesajınız" rows="4" required></textarea>
+            <button type="submit">Gönder</button>
+        </form>
     </section>
 
     <footer>
         <p>© 2024 Basit Web Sayfası. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script>
-        // Butona tıklandığında arka plan rengini değiştiren fonksiyon
-        document.getElementById('changeColorBtn').addEventListener('click', function() {
-            // Renk değiştirme işlemi
-            document.body.style.backgroundColor = getRandomColor();
-            // Mesajı değiştir
-            document.getElementById('message').innerText = "Renk değişti!";
-        });
-
-        // Rastgele bir renk üreten fonksiyon
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-    </script>
 </body>
 </html>
