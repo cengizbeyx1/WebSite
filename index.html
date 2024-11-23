@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cengiz'in Web Sayfası</title>
+    <title>Cengiz'in E-Ticaret Sitesi</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #f8f8f8;
             margin: 0;
             padding: 0;
             text-align: center;
@@ -24,8 +24,75 @@
             margin: 0;
         }
 
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
         section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             margin-top: 30px;
+        }
+
+        .product {
+            background-color: white;
+            width: 200px;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .product button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .product button:hover {
+            background-color: #0056b3;
+        }
+
+        #cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
         }
 
         footer {
@@ -36,60 +103,74 @@
             width: 100%;
             bottom: 0;
         }
-
-        #contact {
-            margin-top: 40px;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        #contact h2 {
-            margin-bottom: 20px;
-        }
-
-        #contact form input,
-        #contact form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        #contact form button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        #contact form button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Merhaba, Hoşgeldiniz!</h1>
-        <p>Bu Cengiz'in Web Sayfasıdır.</p>
+        <h1>Cengiz'in E-Ticaret Sitesi</h1>
+        <nav>
+            <a href="#">Ana Sayfa</a>
+            <a href="#">Ürünler</a>
+            <a href="#">İletişim</a>
+        </nav>
     </header>
 
-    <section id="contact">
-        <h2>İletişime Geçin</h2>
-        <form>
-            <input type="text" placeholder="Adınız" required>
-            <input type="email" placeholder="E-posta adresiniz" required>
-            <textarea placeholder="Mesajınız" rows="4" required></textarea>
-            <button type="submit">Gönder</button>
-        </form>
+    <section>
+        <!-- Ürünler Listesi -->
+        <div class="product" data-id="1">
+            <img src="https://via.placeholder.com/200" alt="Ürün 1">
+            <h3>Ürün 1</h3>
+            <p>Fiyat: 100₺</p>
+            <button onclick="addToCart('Ürün 1', 100)">Sepete Ekle</button>
+        </div>
+        <div class="product" data-id="2">
+            <img src="https://via.placeholder.com/200" alt="Ürün 2">
+            <h3>Ürün 2</h3>
+            <p>Fiyat: 200₺</p>
+            <button onclick="addToCart('Ürün 2', 200)">Sepete Ekle</button>
+        </div>
+        <div class="product" data-id="3">
+            <img src="https://via.placeholder.com/200" alt="Ürün 3">
+            <h3>Ürün 3</h3>
+            <p>Fiyat: 150₺</p>
+            <button onclick="addToCart('Ürün 3', 150)">Sepete Ekle</button>
+        </div>
     </section>
 
+    <button id="cart" onclick="viewCart()">Sepeti Gör</button>
+
     <footer>
-        <p>© 2024 Cengiz'in Web Sayfası. Tüm hakları saklıdır.</p>
+        <p>© 2024 Cengiz'in E-Ticaret Sitesi. Tüm hakları saklıdır.</p>
     </footer>
 
+    <script>
+        let cart = [];
+
+        // Sepete ürün ekleme fonksiyonu
+        function addToCart(productName, price) {
+            cart.push({ productName, price });
+            alert(`${productName} sepete eklendi!`);
+        }
+
+        // Sepeti görüntüleme
+        function viewCart() {
+            if (cart.length === 0) {
+                alert("Sepetiniz boş.");
+                return;
+            }
+
+            let cartDetails = "Sepetiniz:\n";
+            let total = 0;
+
+            cart.forEach(item => {
+                cartDetails += `${item.productName} - ${item.price}₺\n`;
+                total += item.price;
+            });
+
+            cartDetails += `Toplam: ${total}₺`;
+
+            alert(cartDetails);
+        }
+    </script>
 </body>
 </html>
