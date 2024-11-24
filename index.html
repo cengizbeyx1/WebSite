@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cengiz'in E-Ticaret Sitesi</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Geri Sayım Sayfası</title>
     <style>
         /* Genel stil */
         body {
@@ -13,36 +12,22 @@
             margin: 0;
             padding: 0;
             color: #333;
-        }
-
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
 
         h1 {
-            margin: 0;
             font-size: 2.5em;
-        }
-
-        nav {
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
+            color: #007BFF;
         }
 
         /* Geri sayım kısmı */
         .countdown {
             background-color: #ffffff;
             padding: 30px;
-            margin: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -56,102 +41,22 @@
             color: #007BFF;
         }
 
-        /* Ürünler kısmı */
-        section {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 30px;
-            justify-items: center;
-        }
-
-        .product {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 20px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-            max-width: 250px;
-            overflow: hidden;
-        }
-
-        .product:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .product img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .product h3 {
-            font-size: 1.4em;
-            margin: 15px 0;
-        }
-
-        .product p {
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-
-        .product button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .product button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Sepet butonu */
-        #cart {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #007BFF;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50%;
-            font-size: 25px;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
         /* Footer */
         footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
+            position: absolute;
+            bottom: 20px;
             text-align: center;
+            color: #555;
         }
 
         footer p {
             font-size: 1em;
-            margin: 0;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Cengiz'in E-Ticaret Sitesi</h1>
-        <nav>
-            <a href="#">Ana Sayfa</a>
-            <a href="#">Ürünler</a>
-            <a href="#">İletişim</a>
-        </nav>
-    </header>
+    <h1>Belirlediğiniz Tarihe Kalan Süre</h1>
 
     <!-- Geri Sayım Bölümü -->
     <div class="countdown">
@@ -164,65 +69,11 @@
         </div>
     </div>
 
-    <section>
-        <!-- Ürün 1 -->
-        <div class="product" data-id="1">
-            <img src="https://via.placeholder.com/200" alt="Ürün 1">
-            <h3>Ürün 1</h3>
-            <p>Fiyat: 100₺</p>
-            <button onclick="addToCart('Ürün 1', 100)">Sepete Ekle</button>
-        </div>
-        <!-- Ürün 2 -->
-        <div class="product" data-id="2">
-            <img src="https://via.placeholder.com/200" alt="Ürün 2">
-            <h3>Ürün 2</h3>
-            <p>Fiyat: 200₺</p>
-            <button onclick="addToCart('Ürün 2', 200)">Sepete Ekle</button>
-        </div>
-        <!-- Ürün 3 -->
-        <div class="product" data-id="3">
-            <img src="https://via.placeholder.com/200" alt="Ürün 3">
-            <h3>Ürün 3</h3>
-            <p>Fiyat: 150₺</p>
-            <button onclick="addToCart('Ürün 3', 150)">Sepete Ekle</button>
-        </div>
-    </section>
-
-    <button id="cart" onclick="viewCart()">Sepeti Gör</button>
-
     <footer>
-        <p>© 2024 Cengiz'in E-Ticaret Sitesi. Tüm hakları saklıdır.</p>
+        <p>© 2024 Geri Sayım Sayfası. Tüm hakları saklıdır.</p>
     </footer>
 
     <script>
-        let cart = [];
-
-        // Sepete ürün ekleme fonksiyonu
-        function addToCart(productName, price) {
-            cart.push({ productName, price });
-            alert(`${productName} sepete eklendi!`);
-        }
-
-        // Sepeti görüntüleme
-        function viewCart() {
-            if (cart.length === 0) {
-                alert("Sepetiniz boş.");
-                return;
-            }
-
-            let cartDetails = "Sepetiniz:\n";
-            let total = 0;
-
-            cart.forEach(item => {
-                cartDetails += `${item.productName} - ${item.price}₺\n`;
-                total += item.price;
-            });
-
-            cartDetails += `Toplam: ${total}₺`;
-
-            alert(cartDetails);
-        }
-
         // Geri sayım fonksiyonu
         function startCountdown() {
             const targetDate = new Date("2024-12-31T23:59:59"); // Belirlediğiniz tarih
@@ -245,3 +96,11 @@
                     document.getElementById("seconds").textContent = seconds;
                 }
             }, 1000);
+        }
+
+        // Sayfa yüklendiğinde geri sayımı başlat
+        window.onload = startCountdown;
+    </script>
+
+</body>
+</html>
