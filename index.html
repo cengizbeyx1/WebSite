@@ -38,6 +38,24 @@
             font-size: 1.2em;
         }
 
+        /* Geri sayım kısmı */
+        .countdown {
+            background-color: #ffffff;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .countdown span {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #007BFF;
+        }
+
         /* Ürünler kısmı */
         section {
             display: grid;
@@ -135,6 +153,17 @@
         </nav>
     </header>
 
+    <!-- Geri Sayım Bölümü -->
+    <div class="countdown">
+        <p>Hedef Tarihe Kalan Süre:</p>
+        <div id="countdownTimer">
+            <span id="days">0</span> Gün
+            <span id="hours">0</span> Saat
+            <span id="minutes">0</span> Dakika
+            <span id="seconds">0</span> Saniye
+        </div>
+    </div>
+
     <section>
         <!-- Ürün 1 -->
         <div class="product" data-id="1">
@@ -193,6 +222,26 @@
 
             alert(cartDetails);
         }
-    </script>
-</body>
-</html>
+
+        // Geri sayım fonksiyonu
+        function startCountdown() {
+            const targetDate = new Date("2024-12-31T23:59:59"); // Belirlediğiniz tarih
+            const countdownInterval = setInterval(function() {
+                const now = new Date();
+                const timeRemaining = targetDate - now;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("countdownTimer").innerHTML = "Geri Sayım Tamamlandı!";
+                } else {
+                    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                    document.getElementById("days").textContent = days;
+                    document.getElementById("hours").textContent = hours;
+                    document.getElementById("minutes").textContent = minutes;
+                    document.getElementById("seconds").textContent = seconds;
+                }
+            }, 1000);
