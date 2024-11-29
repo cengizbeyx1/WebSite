@@ -17,6 +17,7 @@
             height: 100vh;
             flex-direction: column;
             text-align: center;
+            position: relative;
         }
 
         h1 {
@@ -28,7 +29,7 @@
         }
 
         .countdown {
-            background-color: rgba(0, 0, 0, 0.7); /* Hafif siyah arka plan */
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -44,7 +45,7 @@
 
         .countdown p {
             font-size: 1.5em;
-            color: #fff; /* Beyaz metin */
+            color: #fff;
             margin-bottom: 20px;
             font-weight: bold;
         }
@@ -58,10 +59,12 @@
 
         footer {
             position: absolute;
-            bottom: 20px;
+            bottom: 10px; /* Sayfanın alt kısmına yakın */
+            width: 100%;
             font-size: 1em;
             color: #ccc;
             font-weight: lighter;
+            text-align: center;
         }
 
         footer p {
