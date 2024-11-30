@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YKS 2025 Geri Sayımı</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #4e73df, #1cc88a);
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #4e73df, #1cc88a);
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             flex-direction: column;
             text-align: center;
-            position: relative;
         }
 
         h1 {
@@ -30,28 +35,28 @@
 
         .countdown {
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px; /* Padding küçültüldü */
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             width: 100%;
-            max-width: 400px; /* Genişlik küçültüldü */
+            max-width: 400px;
             margin: 0 20px;
             transition: transform 0.3s ease-in-out;
         }
 
         .countdown:hover {
-            transform: translateY(-8px); /* Hover efekti hafifletildi */
+            transform: translateY(-8px);
         }
 
         .countdown p {
-            font-size: 1.2em; /* Yazı boyutu küçültüldü */
+            font-size: 1.2em;
             color: #fff;
             margin-bottom: 15px;
             font-weight: bold;
         }
 
         .countdown span {
-            font-size: 2.5em; /* Yazı boyutu küçültüldü */
+            font-size: 2.5em;
             font-weight: bold;
             color: #007bff;
             margin: 0 10px;
@@ -59,7 +64,7 @@
 
         footer {
             position: absolute;
-            bottom: 10px; /* Sayfanın alt kısmına yakın */
+            bottom: 10px;
             width: 100%;
             font-size: 1em;
             color: #ccc;
